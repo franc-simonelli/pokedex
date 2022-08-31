@@ -3,7 +3,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:pokedex/constants/color.dart';
 import 'package:pokedex/data/map_pokemon_data.dart';
 import 'package:pokedex/models/json/pokemon_json_model.dart';
 import 'package:pokedex/provider/modal_provider.dart';
@@ -15,6 +14,7 @@ import 'progress_bar_provider.dart';
 class PokemonProvider extends ChangeNotifier {
 
   List<PokemonJsonFromApi> _listaPokemonFromJson = [];
+
   List<PokemonJson> _generation = [];
   List<PokemonJson> _listaPokemon = [];
   List<PokemonJson> _1generazione = [];

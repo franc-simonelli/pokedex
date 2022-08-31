@@ -38,15 +38,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   SystemUiOverlayStyle(
-    //     statusBarColor: Colors.transparent,
-    //     statusBarIconBrightness: Brightness.dark,
-    //     //MediaQuery.platformBrightnessOf(context) == Brightness.light ? Brightness.light : Brightness.dark,
-    //     systemNavigationBarColor: Colors.grey.shade900
-    //   )
-    // );
-
     return MaterialApp(
       
       debugShowCheckedModeBanner: false,

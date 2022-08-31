@@ -15,40 +15,30 @@ class PokemonService {
   final HttpService _httpService = Injector().get<HttpService>();
 
   Future<List<PokemonJsonFromApi>> getAllPokemonFromJson() async {
-    // Fimber.i("FaqsService - getFaqs started");
     var response = await _httpService.httpGet("https://gist.githubusercontent.com/hungps/0bfdd96d3ab9ee20c2e572e47c6834c7/raw/pokemons.json", false);
     if (response.success == true) {
-      // Fimber.i('Faqs founded');
       List<PokemonJsonFromApi> pokemon = [];
       (jsonDecode(response.data) as List<dynamic>).forEach((element) {
         pokemon.add(PokemonJsonFromApi.fromJson(element));
 
       });
-      // print(ingredienti);
-      // Fimber.i('Faqs founded ${faqs.length}');
       return pokemon;
     } else {
-      // Fimber.i('FaqsService - getFaqs error intercepted');
       throw Exception(
           "Errore in fase di recupero delle informazioni: ${response.errorMessage}");
     }
   }
 
   Future<List<PokemonName>> getAllPokemon(limit, offset) async {
-    // Fimber.i("FaqsService - getFaqs started");
     var response = await _httpService.httpGet("pokemon?limit=$limit&offset=$offset", true);
     if (response.success == true) {
-      // Fimber.i('Faqs founded');
       List<PokemonName> pokemon = [];
       (jsonDecode(response.data)['results'] as List<dynamic>).forEach((element) {
         pokemon.add(PokemonName.fromJson(element));
 
       });
-      // print(ingredienti);
-      // Fimber.i('Faqs founded ${faqs.length}');
       return pokemon;
     } else {
-      // Fimber.i('FaqsService - getFaqs error intercepted');
       throw Exception(
           "Errore in fase di recupero delle informazioni: ${response.errorMessage}");
     }
@@ -56,14 +46,12 @@ class PokemonService {
 
   Future<List<Types>> getTypesById(id) async {
     var response = await _httpService.httpGet("pokemon/$id", true);
-
     if (response.success == true) {
       List<Types> types = [];
       (jsonDecode(response.data)['types'] as List<dynamic>).forEach((element) {
         types.add(Types.fromJson(element));
 
       });
-        // element.image = 'https://www.thecocktaildb.com/images/ingredients/' + element[0].value +  '-Small.png';
       return types;
     } else {
       throw Exception(
@@ -75,21 +63,21 @@ class PokemonService {
     var response = await _httpService.httpGet("pokemon/$id", true);
 
     if (response.success == true) {
-      // Pokemon pokemon = Pokemon(0, '', [], 0, [], 0);
-      // pokemon = (jsonDecode(response.data));
-      // Map<String, dynamic> data = new Map<String, dynamic>.from(json.decode(response.data));
-
       Information information = Information([], 0, [], 0);
       information.abilities = [];
       information.stats = [];
-      (jsonDecode(response.data)['abilities'] as List<dynamic>).forEach((element) {
-        information.abilities!.add(Abilities.fromJson(element));
-      });
-      (jsonDecode(response.data)['stats'] as List<dynamic>).forEach((element) {
-        information.stats!.add(Stats.fromJson(element));
-      });
-      information.weight = (jsonDecode(response.data)['weight']);
-      information.height = (jsonDecode(response.data)['height']);
+      // (jsonDecode(response.data)['abilities'] as List<dynamic>).forEach((element) {
+      //   information.abilities!.add(Abilities.fromJson(element));
+      // });
+      // (jsonDecode(response.data)['stats'] as List<dynamic>).forEach((element) {
+      //   information.stats!.add(Stats.fromJson(element));
+      // });
+      // information.weight = (jsonDecode(response.data)['weight']);
+      // information.height = (jsonDecode(response.data)['height']);
+
+      var decode = jsonDecode(response.data);
+      information = Information.fromJson(decode);
+
 
       return information;
     } else {

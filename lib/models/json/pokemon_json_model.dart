@@ -32,7 +32,7 @@ class PokemonJson {
   late String evolvedfrom;
   late String reason;
   late String base_exp;
-  late int numberPokedex;
+  late int? numberPokedex;
 
 
   PokemonJson();
