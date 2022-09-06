@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/screens/details/info_base_pokemon.dart';
 import 'package:pokedex/screens/details/pokeball_widget.dart';
+import 'package:pokedex/widget/add_preferiti_widget.dart';
 import 'package:provider/provider.dart';
 import '../../provider/pokemon_provider.dart';
 import 'container_information.dart';
@@ -45,6 +46,7 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
             children: [
               iconWidget(),
               PokeballDetailWidget(),
+              AddPreferitiWidget(provider.dettaglioPokemon),
               ContainerInformation(),
               InfoBase(provider),
             ]
@@ -52,8 +54,9 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
         ),
       );
     });
-    
   }
+
+  
 
   Widget iconWidget() {
     return Positioned(

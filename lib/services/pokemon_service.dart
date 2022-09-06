@@ -1,13 +1,10 @@
 // ignore_for_file: avoid_function_literals_in_foreach_calls
 
 import 'dart:convert';
-
 import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:pokedex/models/json/pokemon_json_model.dart';
-import '../models/pokeapi/abilities_model.dart';
 import '../models/pokeapi/information_pokemon_model.dart';
 import '../models/pokeapi/pokemon_model.dart';
-import '../models/pokeapi/stats_model.dart';
 import '../models/pokeapi/types_model.dart';
 import 'http_service.dart';
 

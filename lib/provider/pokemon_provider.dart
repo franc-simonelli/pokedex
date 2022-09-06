@@ -1,5 +1,5 @@
 
-// ignore_for_file: prefer_final_fields, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, unused_field, unused_local_variable
+// ignore_for_file: prefer_final_fields, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, unused_field, unused_local_variable, prefer_collection_literals
 
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
@@ -47,6 +47,41 @@ class PokemonProvider extends ChangeNotifier {
   String get filterSearch => _filterSearch;
   List<String> get typeFilter => _typeFilterList;
 
+
+  addPreferito(pokemon) async {
+    final prefs = await SharedPreferences.getInstance();
+    final String preferiti = prefs.getString('preferiti') ?? '';
+    List<PokemonJson> listaPreferiti = [];
+    if(preferiti != '') {
+      listaPreferiti = PokemonJson.decode(preferiti);
+      bool isExist = false;
+      for(var i in listaPreferiti) {
+        if(i.numberPokedex == pokemon.numberPokedex) {
+          isExist = true;
+          break;
+        }
+      }
+      if(isExist) {
+        listaPreferiti.removeWhere((item) => item.numberPokedex == pokemon.numberPokedex);
+      } else {
+        listaPreferiti.add(pokemon);  
+      }
+    } else {
+      listaPreferiti.add(pokemon);
+    }
+    
+    final String encodedata = PokemonJson.encode(listaPreferiti);
+    await prefs.setString('preferiti', encodedata);
+    notifyListeners();
+  }
+
+  getListaPreferiti() async {
+    final prefs = await SharedPreferences.getInstance();
+    final String preferiti = prefs.getString('preferiti') ?? '';
+    return PokemonJson.decode(preferiti);
+  }
+
+  
   setListaOrdinata(lista) {
     _listaPokemon = lista;
     notifyListeners();

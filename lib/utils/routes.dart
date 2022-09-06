@@ -8,7 +8,7 @@ import '../screens/home/home_page_screen.dart';
 import '../screens/splash_screen/splash_screen.dart';
 
 
-enum Routes { splash, home, pokedex, detailsPokemon, typeEffects, items }
+enum Routes { splash, home, pokedex, detailsPokemon }
 
 class _Paths {
   static const String splash = '/';

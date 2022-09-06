@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables, unused_local_variable
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../models/json/pokemon_json_model.dart';

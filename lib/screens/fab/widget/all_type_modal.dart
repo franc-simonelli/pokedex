@@ -1,13 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:pokedex/models/pokeapi/pokemon_model.dart';
 import 'package:pokedex/screens/fab/widget/modal_widget.dart';
 import 'package:provider/provider.dart';
-
 import '../../../models/pokemon_types.dart';
 import '../../../provider/modal_provider.dart';
 import '../../../provider/pokemon_provider.dart';

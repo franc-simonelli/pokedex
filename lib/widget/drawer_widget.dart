@@ -1,6 +1,6 @@
+// ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables, unused_local_variable, no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:pokedex/provider/modal_provider.dart';
 import 'package:pokedex/utils/theme.dart';
 import 'package:provider/provider.dart';

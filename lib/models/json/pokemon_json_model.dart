@@ -33,6 +33,7 @@ class PokemonJson {
   late String reason;
   late String base_exp;
   late int? numberPokedex;
+  late bool isPreferito;
 
 
   PokemonJson();
@@ -71,6 +72,7 @@ class PokemonJson {
     reason = json['reason'];
     base_exp = json['base_exp'];
     numberPokedex = json['numberPokedex'];
+    isPreferito = json['isPreferito'];
   }
 
   static String encode(List<PokemonJson> pokemon) => json.encode(
@@ -115,7 +117,7 @@ class PokemonJson {
     'reason': pokemon.reason,
     'base_exp': pokemon.base_exp,
     'numberPokedex': pokemon.numberPokedex,
-
+    'isPreferito': pokemon.isPreferito,
   };
 }
 

@@ -1,11 +1,8 @@
-// ignore_for_file: prefer_final_fields
+// ignore_for_file: prefer_final_fields, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
 import '../constants/color.dart';
 import '../models/json/pokemon_json_model.dart';
-import '../provider/progress_bar_provider.dart';
 
 class MapPokemonData {
   
@@ -39,7 +36,7 @@ class MapPokemonData {
       pok.height = (info.height! / 10).toString();
       pok.abilitiesApi = info.abilities;
       pok.numberPokedex = index;
-
+      pok.isPreferito = false;
       return pok;
   }
 

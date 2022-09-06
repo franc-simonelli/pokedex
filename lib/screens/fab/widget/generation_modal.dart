@@ -5,7 +5,6 @@ import 'package:pokedex/provider/pokemon_provider.dart';
 import 'package:pokedex/screens/fab/widget/modal_widget.dart';
 import 'package:provider/provider.dart';
 import '../../../constants/generations.dart';
-import '../../../models/pokemon_types.dart';
 import 'card_generation_widget.dart';
 
 class GenerationModal extends StatelessWidget {

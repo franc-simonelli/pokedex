@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:pokedex/provider/modal_provider.dart';
 import 'package:provider/provider.dart';

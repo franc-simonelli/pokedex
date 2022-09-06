@@ -1,11 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_local_variable, no_leading_underscores_for_local_identifiers, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:pokedex/constants/color.dart';
 import 'package:pokedex/provider/modal_provider.dart';
 import 'package:pokedex/utils/theme.dart';
 import 'package:provider/provider.dart';
-
 import '../../../provider/pokemon_provider.dart';
 import '../../../widget/drawer_widget.dart';
 import 'modal_bottom_order_widget.dart';
@@ -95,7 +93,7 @@ class PokedexScreen extends StatelessWidget {
   Widget filterTypesWidget(PokemonProvider provider, ThemeData theme, BuildContext context) {
     
     return Positioned(
-      top: 115,
+      top: 110,
       left: 20,
       right: 10,
       child: Row(
@@ -104,9 +102,7 @@ class PokedexScreen extends StatelessWidget {
           Container(
             width: 310,
             height: 30,
-            // color: Colors.white,
             child: ListView.builder(
-              
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: provider.typeFilter.length,
@@ -117,7 +113,6 @@ class PokedexScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Provider.of<PokemonProvider>(context, listen: false).getColor(provider.typeFilter[index]),
                       borderRadius: BorderRadius.circular(20),
-                      // border: Border.all(color: Colors.black)
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 20, right: 20),
@@ -151,51 +146,12 @@ class PokedexScreen extends StatelessWidget {
 
 
 
-      // child: SizedBox(
-      //   height: 30,
-      //   child: ListView.builder(
-          
-      //     shrinkWrap: true,
-      //     scrollDirection: Axis.horizontal,
-      //     itemCount: provider.typeFilter.length,
-      //     itemBuilder: (context, index) {
-      //       return Padding(
-      //         padding: const EdgeInsets.symmetric(horizontal: 5),
-      //         child: Container(
-      //           decoration: BoxDecoration(
-      //             color: Provider.of<PokemonProvider>(context, listen: false).getColor(provider.typeFilter[index]),
-      //             borderRadius: BorderRadius.circular(20),
-      //             // border: Border.all(color: Colors.black)
-      //           ),
-      //           child: Padding(
-      //             padding: const EdgeInsets.only(left: 20, right: 20),
-      //             child: Row(
-      //               children: [
-      //                 Text(
-      //                   provider.typeFilter[index], 
-      //                   style: theme.textTheme.subtitle2!.copyWith(
-      //                     color: Colors.white, 
-      //                     shadows: MyTheme.shadowTextType
-      //                   ),
-      //                 ),
-      //                 Padding(
-      //                   padding: const EdgeInsets.only(left: 10, ),
-      //                   child: Icon(Icons.close, color: Colors.white, shadows: MyTheme.shadowTextType,),
-      //                 )
-      //               ],
-      //             ),
-      //           )
-      //         ),
-      //       ); 
-      //     }
-      //   ),
-      // )
     );
   }
 
   Widget titleWidget(ThemeData theme) {
     return Positioned(
-      top: 70,
+      top: 60,
       left: 20,
       child: Container(
         decoration: BoxDecoration(
@@ -203,7 +159,7 @@ class PokedexScreen extends StatelessWidget {
           
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(0.0),
           child: Text('Pokedex', style: theme.textTheme.headline1),
         )
       ),
@@ -212,12 +168,12 @@ class PokedexScreen extends StatelessWidget {
 
   Widget iconFilter(ThemeData theme, context) {
     return Positioned(
-      top: 67,
+      top: 70,
       right: 25,
       child: InkWell(
         // onTap: () {Provider.of<ModalProvider>(context, listen: false).onTappedBar();}
         child: Opacity(
-          opacity: 0.9,
+          opacity: 1.0,
           child: Container(
             
             decoration: BoxDecoration(
@@ -225,14 +181,14 @@ class PokedexScreen extends StatelessWidget {
               color: Colors.grey.shade300,
             ),
             child: Padding(
-              padding: const EdgeInsets.all(1),
+              padding: const EdgeInsets.all(3),
               child: Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: Text("Ordina", style: theme.textTheme.bodyLarge!.copyWith(color: Colors.grey.shade900)),
+                    child: Text("Ordina", style: theme.textTheme.bodyLarge!.copyWith(color: Colors.grey.shade900, fontSize: 16)),
                   ),
-                  Icon(Icons.swap_vert_outlined, color: Colors.black),
+                  Icon(Icons.swap_vert_outlined, color: Colors.black, size: 30,),
                 ],
               ),
             ),
@@ -261,7 +217,7 @@ class PokedexScreen extends StatelessWidget {
     return Positioned(
       right: -60,
       top: -15,
-      child: Image.asset('contents/images/pokeball.png', width: 200, color: Colors.grey.shade400,),
+      child: Image.asset('contents/images/pokeball.png', width: 210, color: Colors.grey.shade400,),
     );
   }
 

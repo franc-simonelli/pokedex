@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_typing_uninitialized_variables, prefer_const_constructors_in_immutables
+
 import 'package:flutter/material.dart';
 import 'package:pokedex/utils/theme.dart';
 import 'package:provider/provider.dart';
@@ -5,7 +7,7 @@ import 'package:provider/provider.dart';
 import '../../../provider/pokemon_provider.dart';
 
 class TypeWidget extends StatelessWidget {
-  const TypeWidget(this.provider, this.item);
+  TypeWidget(this.provider, this.item);
   final item;
   final provider;
 

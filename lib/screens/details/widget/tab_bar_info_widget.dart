@@ -1,15 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, prefer_final_fields, unnecessary_new, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:flutter_dropdown/flutter_dropdown.dart';
-import 'package:pokedex/models/json/pokemon_json_model.dart';
-import 'package:pokedex/screens/details/widget/item_stat_widget.dart';
-import 'package:pokedex/screens/home/widget/cached_network_image.dart';
 import 'package:pokedex/utils/theme.dart';
 import 'package:provider/provider.dart';
-
 import '../../../provider/pokemon_provider.dart';
-import 'about_tab_widget.dart';
 import 'evolution_tab_widget.dart';
 import 'stats_tab_widget.dart';
 

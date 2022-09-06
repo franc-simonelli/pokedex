@@ -2,7 +2,6 @@
 
 import 'abilities_model.dart';
 import 'stats_model.dart';
-import 'types_model.dart';
 
 class Information {
   // late List<Types>? types; 
@@ -14,7 +13,6 @@ class Information {
   Information(this.abilities, this.height, this.stats, this.weight);
 
   Information.fromJson(Map<String, dynamic> json) {
-    // types = json['types'];
     abilities = <Abilities>[];
     json['abilities'].forEach((v) {
       abilities!.add(Abilities.fromJson(v));
@@ -24,7 +22,6 @@ class Information {
       stats!.add(Stats.fromJson(v));
     });
     height = json['height'];
-    // stats = json['stats'];
     weight = json['weight'];
   }
 

@@ -1,12 +1,9 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'dart:async';
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:pokedex/provider/modal_provider.dart';
 import 'package:pokedex/widget/progress_bar_widget.dart';
 import 'package:provider/provider.dart';
-
 import '../provider/progress_bar_provider.dart';
 
 
@@ -18,7 +15,7 @@ class DonwloadLoadingWidget extends StatefulWidget {
 }
 
 class _DonwloadLoadingWidgetState extends State<DonwloadLoadingWidget> {
-  double pikachuMove = 0;
+  double pikachuMove = -10;
   late Timer timer;
   String position = 'avanti';
 
@@ -58,7 +55,7 @@ class _DonwloadLoadingWidgetState extends State<DonwloadLoadingWidget> {
     return Consumer<ProgressBarProvider>(builder: (ctx, provider, _) {
       return Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(image: const AssetImage("contents/images/pokedex.jpg"), fit: BoxFit.cover,),
+          image: DecorationImage(image: AssetImage("contents/images/pokedex.jpg"), fit: BoxFit.cover,),
         ),
         child: Center(
           child: Column(
@@ -67,7 +64,7 @@ class _DonwloadLoadingWidgetState extends State<DonwloadLoadingWidget> {
               const SizedBox(height: 50),
               Text("Download in corso . . . ", style: theme.textTheme.subtitle2!.copyWith(color: Colors.grey.shade900)),
               const SizedBox(height: 5,),
-              ProgressBar(width: 300, height: 30, progress: provider.progress, child: buildChild(image, provider.progress, 300),)
+              ProgressBar(width: 300, height: 30, progress: provider.progress, child: buildChild(image, provider.progress),)
             ],
           ),
         ),
@@ -75,7 +72,7 @@ class _DonwloadLoadingWidgetState extends State<DonwloadLoadingWidget> {
     });
   }
 
-  Widget buildChild(Image image, progress, width) {
+  Widget buildChild(Image image, progress,) {
     return AnimatedPositioned(
       duration: const Duration(milliseconds: 250),
       left: progress,

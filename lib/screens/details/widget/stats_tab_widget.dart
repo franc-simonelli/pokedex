@@ -1,11 +1,6 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, prefer_typing_uninitialized_variables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:pokedex/models/pokemon_types.dart';
-import 'package:provider/provider.dart';
-
 import '../../../provider/pokemon_provider.dart';
 import 'item_stat_widget.dart';
 

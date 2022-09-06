@@ -1,12 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:provider/provider.dart';
+// ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables, unused_local_variable, no_leading_underscores_for_local_identifiers
 
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../provider/modal_provider.dart';
 import '../../../utils/theme.dart';
-import '../../../widget/drawer_widget.dart';
-
 
 enum SingingCharacter { pokedex, hp, attack, defense, spAtk, spDef, speed, total }
 

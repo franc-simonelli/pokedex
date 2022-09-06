@@ -49,7 +49,9 @@ class _ContainerInformationState extends State<ContainerInformation> with Single
           boxShadow: null,
           color: Colors.transparent,
           panel: child,
-          onPanelSlide: (position) =>slideController.value = position,
+          onPanelSlide: (position) {
+            slideController.value = position;
+          },
         );
       },
       child: Container(
