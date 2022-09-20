@@ -35,3 +35,7 @@ flutter:
     - contents/images/
   uses-material-design: true
 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "contents/images/iconApp.png"

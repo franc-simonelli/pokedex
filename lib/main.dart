@@ -6,10 +6,12 @@ import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:pokedex/provider/modal_provider.dart';
 import 'package:pokedex/provider/pokemon_provider.dart';
 import 'package:pokedex/provider/progress_bar_provider.dart';
+import 'package:pokedex/screens/preferiti/preferiti_screen.dart';
 import 'package:pokedex/services/pokemon_service.dart';
 import 'package:pokedex/utils/theme.dart';
 import 'package:provider/provider.dart';
 import 'data/map_pokemon_data.dart';
+import 'screens/details/detail_page_screen.dart';
 import 'screens/home/home_page_screen.dart';
 import 'services/http_service.dart';
 import 'utils/routes.dart';
@@ -52,9 +54,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
-      home: HomePageScreen(),
-      onGenerateRoute: AppNavigator.onGenerateRoute,
-      navigatorKey: AppNavigator.navigatorKey,
+      // home: HomePageScreen(),
+      // onGenerateRoute: AppNavigator.onGenerateRoute,
+      // navigatorKey: AppNavigator.navigatorKey,
+      initialRoute: HomePageScreen.routeName,
+      routes: createRoutes(),
     
     );
   }
@@ -68,6 +72,14 @@ class ModuleContainer {
 
     return injector;
   }
+}
+
+Map<String, Widget Function(BuildContext)> createRoutes() {
+  return {
+    HomePageScreen.routeName: (ctx) => HomePageScreen(),  
+    PreferitiScreen.routeName: (ctx) => PreferitiScreen(),
+    DetailsScreen.routeName: (ctx) => DetailsScreen()
+  };
 }
 
 

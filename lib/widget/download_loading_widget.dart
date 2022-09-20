@@ -15,35 +15,35 @@ class DonwloadLoadingWidget extends StatefulWidget {
 }
 
 class _DonwloadLoadingWidgetState extends State<DonwloadLoadingWidget> {
-  double pikachuMove = -10;
-  late Timer timer;
-  String position = 'avanti';
+  // double pikachuMove = -40;
+  // late Timer timer;
+  // String position = 'avanti';
 
-  @override
-  void initState() {
-    timer = Timer.periodic(const Duration(milliseconds: 100), (Timer t) => setState(() {
+  // @override
+  // void initState() {
+  //   timer = Timer.periodic(const Duration(milliseconds: 100), (Timer t) => setState(() {
 
-      if(pikachuMove == 280) {
-        position = 'indietro';
-      }
-      if(pikachuMove == 30) {
-        position = 'avanti';
-      }
-      if(position == 'avanti') {
-        pikachuMove = pikachuMove + 10;
+  //     if(pikachuMove == 280) {
+  //       position = 'indietro';
+  //     }
+  //     if(pikachuMove == 30) {
+  //       position = 'avanti';
+  //     }
+  //     if(position == 'avanti') {
+  //       pikachuMove = pikachuMove + 10;
 
-      }
-      if(position == 'indietro') {
-        pikachuMove = pikachuMove - 10;
-      }
+  //     }
+  //     if(position == 'indietro') {
+  //       pikachuMove = pikachuMove - 10;
+  //     }
       
-    }));
-    super.initState();
-  }
+  //   }));
+  //   super.initState();
+  // }
 
   @override
   void dispose() {
-    timer.cancel();
+    // timer.cancel();
     super.dispose();
   }
 
@@ -75,7 +75,7 @@ class _DonwloadLoadingWidgetState extends State<DonwloadLoadingWidget> {
   Widget buildChild(Image image, progress,) {
     return AnimatedPositioned(
       duration: const Duration(milliseconds: 250),
-      left: progress,
+      left: progress-40,
       top: 0,
       child: image,
       // child: position == 'avanti'? 

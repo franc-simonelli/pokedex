@@ -9,6 +9,7 @@ import '../fab/fab_menu.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({Key? key}) : super(key: key);
+  static const String routeName = "/homePage";
 
   @override
   Widget build(BuildContext context) {

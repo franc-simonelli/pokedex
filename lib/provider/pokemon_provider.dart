@@ -14,9 +14,9 @@ import 'progress_bar_provider.dart';
 class PokemonProvider extends ChangeNotifier {
 
   List<PokemonJsonFromApi> _listaPokemonFromJson = [];
-
   List<PokemonJson> _generation = [];
   List<PokemonJson> _listaPokemon = [];
+  List<PokemonJson> _listaPokemonPreferiti = [];
   List<PokemonJson> _1generazione = [];
   List<PokemonJson> _2generazione = [];
   List<PokemonJson> _3generazione = [];
@@ -29,24 +29,33 @@ class PokemonProvider extends ChangeNotifier {
   List<String> _totalProgress = [];
   List<String> _typeFilterList = [];
 
+
   String _generationSelect = '1_gen';
   List<PokemonJson> _currentGeneration = [];
-
   String _filterSearch = '';
-
   int startIndex = 0;
   int endIndex = 0;
   String generation = '';
-
   bool _loading = false;
   bool _isDownload = false;
   PokemonJson get dettaglioPokemon => _dettaglioPokemon;
   List<PokemonJson> get listaPokemon => _listaPokemon;
+  List<PokemonJson> get listaPokemonPreferiti => _listaPokemonPreferiti;
   bool get loading => _loading;
   bool get isDownload => _isDownload;
   String get filterSearch => _filterSearch;
   List<String> get typeFilter => _typeFilterList;
 
+
+  getPokemonPreferiti() async{
+    final prefs = await SharedPreferences.getInstance();
+    final String preferiti = prefs.getString('preferiti') ?? '';
+    if(preferiti != '') {
+      _listaPokemonPreferiti = PokemonJson.decode(preferiti);
+    }
+    notifyListeners();
+
+  }
 
   addPreferito(pokemon) async {
     final prefs = await SharedPreferences.getInstance();
@@ -81,7 +90,6 @@ class PokemonProvider extends ChangeNotifier {
     return PokemonJson.decode(preferiti);
   }
 
-  
   setListaOrdinata(lista) {
     _listaPokemon = lista;
     notifyListeners();
@@ -236,9 +244,9 @@ class PokemonProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  setIdPage() {
-    for(var i=0; i < _listaPokemon.length; i++) {
-      if(_dettaglioPokemon.id == _listaPokemon[i].id) {
+  setIdPage(listaDiRiferimento) {
+    for(var i=0; i < listaDiRiferimento.length; i++) {
+      if(_dettaglioPokemon.id == listaDiRiferimento[i].id) {
         return i;
       }
     }

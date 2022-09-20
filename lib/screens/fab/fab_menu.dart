@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/extensions/animation.dart';
 import 'package:pokedex/screens/fab/widget/all_type_modal.dart';
+import 'package:pokedex/screens/preferiti/preferiti_screen.dart';
+import 'package:pokedex/utils/routes.dart';
 
 import 'widget/animated_overlay.dart';
 import 'widget/fab.dart';
@@ -88,6 +90,11 @@ class _FabMenuState extends State<FabMenu> with SingleTickerProviderStateMixin {
     callback?.call();
   }
 
+  goToFavorite() {
+    // AppNavigator.push(Routes.favoritePokemon);
+    Navigator.pushNamed(context, PreferitiScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     final safeAreaBottom = MediaQuery.of(context).padding.bottom;
@@ -107,7 +114,9 @@ class _FabMenuState extends State<FabMenu> with SingleTickerProviderStateMixin {
             FabItemData(
               'Favourite Pokemon',
               Icons.favorite,
-              onPress: () => onPress(),
+              onPress: () => onPress(
+                goToFavorite()
+              ),
               Colors.red,
             ),
             FabItemData(

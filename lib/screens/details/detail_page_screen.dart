@@ -5,11 +5,13 @@ import 'package:pokedex/screens/details/info_base_pokemon.dart';
 import 'package:pokedex/screens/details/pokeball_widget.dart';
 import 'package:pokedex/widget/add_preferiti_widget.dart';
 import 'package:provider/provider.dart';
+import '../../models/arguments_route_details.dart';
 import '../../provider/pokemon_provider.dart';
 import 'container_information.dart';
 import 'pokemon_inherited_widget.dart';
 
 class DetailsScreen extends StatefulWidget {
+  static const String routeName = "/detailsPage";
   DetailsScreen({Key? key}) : super(key: key);
 
   @override
@@ -32,11 +34,15 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
   @override
   void dispose() {
      _slideController.dispose();
+     
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    
+    final args = ModalRoute.of(context)!.settings.arguments as ArgumentRoutesDetails;
+
     return Consumer<PokemonProvider>(builder: (ctx, provider, _) {
       return PokemonAnimationInherited(
         slideController: _slideController,
@@ -48,7 +54,7 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
               PokeballDetailWidget(),
               AddPreferitiWidget(provider.dettaglioPokemon),
               ContainerInformation(),
-              InfoBase(provider),
+              InfoBase(provider, args.lista),
             ]
           )
         ),

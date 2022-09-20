@@ -9,8 +9,9 @@ import '../home/widget/cached_network_image.dart';
 import 'pokemon_inherited_widget.dart';
 
 class InfoBase extends StatefulWidget {
-  const InfoBase(this.provider, {Key? key}) : super(key: key);
+  const InfoBase(this.provider, this.lista,{Key? key}) : super(key: key);
   final provider;
+  final lista;
 
   @override
   State<InfoBase> createState() => _InfoBaseState();
@@ -21,13 +22,11 @@ class _InfoBaseState extends State<InfoBase> {
   Animation<double> get textFadeAnimation => Tween(begin: 1.0, end: 0.0).animate(slideController);
   Size cacheMaxSize = Size(700, 700);
   final ImageProvider placeholder = AppImages.bulbasaur;
-    
-  
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    final PageController controller = PageController(initialPage: Provider.of<PokemonProvider>(context, listen: false).setIdPage());
+    final PageController controller = PageController(initialPage: Provider.of<PokemonProvider>(context, listen: false).setIdPage(widget.lista));
     return AnimatedBuilder(
       animation: slideController,
       builder: ((context, child) {
@@ -52,9 +51,9 @@ class _InfoBaseState extends State<InfoBase> {
         child: PageView.builder(
           controller: controller,
           onPageChanged:((value) {
-            Provider.of<PokemonProvider>(context, listen: false).selectPokemon(widget.provider.listaPokemon[value]);
+            Provider.of<PokemonProvider>(context, listen: false).selectPokemon(widget.lista[value]);
           }),
-          itemCount: widget.provider.listaPokemon.length,
+          itemCount: widget.lista.length,
           itemBuilder: (_, i) {
             return Opacity(
               opacity: textFadeAnimation.value,
